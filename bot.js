@@ -40,7 +40,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if(message.content === prefix+'ريب'){
-        message.channel.send("#rep "+"<@" + myid + ">")
+        message.channel.send('#rep <@473244618067279872>')
     }
 });
 
@@ -67,15 +67,26 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-
-
-if (command == "تحدث") {
-let rank = message.guild.member(message.author).roles.find('name', 'Role.Kahrbaa');
-if (!rank) return message.reply(' ')
-  message.channel.send(args.join("  "))
-    message.delete();
-  }
-});
+client.on("message",async msg => {
+    if(msg.content.startsWith(prefix + "say")){
+        if(msg.author.id !== '473244618067279872') return;
+        let args = '';
+        let fltr = m => m.author.id === msg.author.id
+        await msg.reply("**اكتب شي لجعلي اكتب شيئ الان**").then(p =>{
+            p.delete(2222)
+        })
+        msg.channel.awaitMessages(fltr, {
+time: 60000,
+max: 1
+        })
+        .then(sy => {
+            args = sy.first().content
+            sy.first().delete();
+            msg.delete(2222);
+            msg.channel.send(args)
+        })
+    }
+})
 
 client2.on('message', message => {
     if(message.content === prefix+'راتب'){
@@ -91,7 +102,7 @@ client2.on('message', message => {
 
 client2.on('message', message => {
     if(message.content === prefix+'ريب'){
-        message.channel.send('#rep <@286088294234718209>')
+        message.channel.send('#rep <@473244618067279872>')
     }
 });
 
@@ -118,15 +129,26 @@ client2.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-
-
-if (command == "تحدث") {
-let rank = message.guild.member(message.author).roles.find('name', 'Role.Kahrbaa');
-if (!rank) return message.reply(' ')
-  message.channel.send(args.join("  "))
-    message.delete();
-  }
-});
+client2.on("message",async msg => {
+    if(msg.content.startsWith(prefix + "say")){
+        if(msg.author.id !== '473244618067279872') return;
+        let args = '';
+        let fltr = m => m.author.id === msg.author.id
+        await msg.reply("**اكتب شي لجعلي اكتب شيئ الان**").then(p =>{
+            p.delete(2222)
+        })
+        msg.channel.awaitMessages(fltr, {
+time: 60000,
+max: 1
+        })
+        .then(sy => {
+            args = sy.first().content
+            sy.first().delete();
+            msg.delete(2222);
+            msg.channel.send(args)
+        })
+    }
+})
 
 
 client.login(process.env.TOKEN);
