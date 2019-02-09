@@ -86,7 +86,7 @@ max: 1
             msg.channel.send(args)
         })
     }
-})
+});
 
 client2.on('message', message => {
     if(message.content === prefix+'راتب'){
@@ -148,7 +148,7 @@ max: 1
             msg.channel.send(args)
         })
     }
-})
+});
 
 
 client.login(process.env.TOKEN);
