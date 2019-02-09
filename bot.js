@@ -5,8 +5,6 @@ const myid = ['473244618067279872'];
 const prefix = ['-'];
 
 client.on('ready', () => {
-   client.user.setGame(`spam`,"http://twitch.tv/S-F")
-   client2.user.setGame(`spam`,"http://twitch.tv/S-F")
    console.log(`----------------`);
    console.log(`Credit Farmm - Script By : Kahrbaa `);
    console.log(`----------------`);
@@ -67,25 +65,14 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-client.on("message",async msg => {
-    if(msg.content.startsWith(prefix + "say")){
-        if(msg.author.id !== '473244618067279872') return;
-        let args = '';
-        let fltr = m => m.author.id === msg.author.id
-        await msg.reply("**اكتب شي لجعلي اكتب شيئ الان**").then(p =>{
-            p.delete(2222)
-        })
-        msg.channel.awaitMessages(fltr, {
-time: 60000,
-max: 1
-        })
-        .then(sy => {
-            args = sy.first().content
-            sy.first().delete();
-            msg.delete(2222);
-            msg.channel.send(args)
-        })
-    }
+
+
+if (command == "تحدث") {
+let rank = message.guild.member(message.author).roles.find('name', 'Role.Kahrbaa');
+if (!rank) return message.reply(' ')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
 });
 
 client2.on('message', message => {
@@ -129,25 +116,14 @@ client2.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-client2.on("message",async msg => {
-    if(msg.content.startsWith(prefix + "say")){
-        if(msg.author.id !== '473244618067279872') return;
-        let args = '';
-        let fltr = m => m.author.id === msg.author.id
-        await msg.reply("**اكتب شي لجعلي اكتب شيئ الان**").then(p =>{
-            p.delete(2222)
-        })
-        msg.channel.awaitMessages(fltr, {
-time: 60000,
-max: 1
-        })
-        .then(sy => {
-            args = sy.first().content
-            sy.first().delete();
-            msg.delete(2222);
-            msg.channel.send(args)
-        })
-    }
+
+
+if (command == "تحدث") {
+let rank = message.guild.member(message.author).roles.find('name', 'Role.Kahrbaa');
+if (!rank) return message.reply(' ')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
 });
 
 
